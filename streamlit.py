@@ -8,11 +8,11 @@ from tensorflow import keras
 
 
 # Read dictionary pkl file
-with open('C:\\Users\\kevin\\OneDrive\\Documents\\MSU\\2nd Sem\\CMSE 890 applied ML\\final submittion\\CMSE890\\kaggle\\word_2_indices.pkl', 'rb') as fp:
+with open('final models/word_2_indices.pkl', 'rb') as fp:
     word_2_indices = pickle.load(fp)
 print(word_2_indices)
 
-with open('C:\\Users\\kevin\\OneDrive\\Documents\\MSU\\2nd Sem\\CMSE 890 applied ML\\final submittion\\CMSE890\\kaggle\\indices_2_word.pkl', 'rb') as fp:
+with open('final models/indices_2_word.pkl', 'rb') as fp:
     indices_2_word = pickle.load(fp)
 print(indices_2_word)
 
@@ -22,7 +22,7 @@ max_len = 40
 from PIL import Image
 import cv2
 def preprocessing(img_path):
-    im =  tf.keras.utils.load_img("C:\\Users\\kevin\\OneDrive\\Documents\\MSU\\2nd Sem\\CMSE 890 applied ML\\final submittion\\CMSE890\\temp.png",target_size=(224,224,3))
+    im =  tf.keras.utils.load_img("temp.png",target_size=(224,224,3))
     # print(im)
     im = tf.keras.utils.img_to_array(im)
     im = np.expand_dims(im, axis=0)
@@ -55,7 +55,7 @@ def saveImage(byteImage):
     imgFile.resize((224,224))
     return imgFile
 
-model = keras.models.load_model('C:\\Users\\kevin\\OneDrive\\Documents\\MSU\\2nd Sem\\CMSE 890 applied ML\\final submittion\\CMSE890\\kaggle\\model_weights_1.h5')
+model = keras.models.load_model('final models/model_weights_1.h5')
 
 st.write("upload image")
 
